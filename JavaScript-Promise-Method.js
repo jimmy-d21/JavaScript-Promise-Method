@@ -130,3 +130,7 @@ Promise.resolve()
   .then(() => Promise.resolve("Nested Resolved"))
   .then(console.log);
 // Output: "Nested Resolved"
+
+// 5. Skipping handler when non-function passed
+Promise.resolve("Direct Value").then(null).then(console.log);
+// Output: "Direct Value"
