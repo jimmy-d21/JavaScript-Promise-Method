@@ -41,3 +41,8 @@ console.log("2. Outer script continues");
 const pendingPromise = new Promise(() => {});
 console.log(pendingPromise);
 // Output: Promise { <pending> }
+
+// 2. Fulfilled state transition
+const fulfilledPromise = Promise.resolve("Data loaded");
+console.log(fulfilledPromise);
+// Output: Promise { "Data loaded" }
