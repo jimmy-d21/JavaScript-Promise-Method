@@ -124,3 +124,9 @@ Promise.resolve(100)
   .then((res) => res + 50)
   .then(console.log);
 // Output: 150
+
+// 4. Async flattening (returning internal Promise)
+Promise.resolve()
+  .then(() => Promise.resolve("Nested Resolved"))
+  .then(console.log);
+// Output: "Nested Resolved"
