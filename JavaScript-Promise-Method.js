@@ -88,3 +88,10 @@ Promise.resolve("hello")
   .then((str) => `${str} WORLD`)
   .then(console.log);
 // Output: "HELLO WORLD"
+
+// 4. Error recovery in the middle of a chain
+Promise.reject("Initial Error")
+  .catch(() => "Recovered Value")
+  .then((val) => `${val} -> Next Step`)
+  .then(console.log);
+// Output: "Recovered Value -> Next Step"
