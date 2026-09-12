@@ -23,3 +23,14 @@ const checkAge = (age) =>
   });
 checkAge(20).then(console.log);
 // Output: "Allowed"
+
+// 5. Handling asynchronous execution order
+new Promise((resolve) => {
+  console.log("1. Executor runs synchronously");
+  resolve("3. Resolved");
+}).then(console.log);
+console.log("2. Outer script continues");
+// Output:
+// "1. Executor runs synchronously"
+// "2. Outer script continues"
+// "3. Resolved"
