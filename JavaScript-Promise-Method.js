@@ -60,3 +60,9 @@ new Promise((resolve, reject) => {
   resolve("Ignored");
 }).then(console.log);
 // Output: "First Call Wins"
+
+// 5. State locks indefinitely if never settled
+const neverSettles = new Promise(() => {});
+neverSettles.then(() => console.log("Never runs"));
+console.log("Finished script");
+// Output: "Finished script"
