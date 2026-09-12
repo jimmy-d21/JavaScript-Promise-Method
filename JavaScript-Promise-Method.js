@@ -46,3 +46,9 @@ console.log(pendingPromise);
 const fulfilledPromise = Promise.resolve("Data loaded");
 console.log(fulfilledPromise);
 // Output: Promise { "Data loaded" }
+
+// 3. Rejected state transition
+const rejectedPromise = Promise.reject("Network Error");
+rejectedPromise.catch(() => {}); // Prevent unhandled rejection warning
+console.log(rejectedPromise);
+// Output: Promise { <rejected> "Network Error" }
