@@ -66,3 +66,12 @@ const neverSettles = new Promise(() => {});
 neverSettles.then(() => console.log("Never runs"));
 console.log("Finished script");
 // Output: "Finished script"
+
+// Chaining: Returning values/promises inside .then() passes them down to the next .then()
+
+// 1. Chaining simple mathematical operations
+Promise.resolve(5)
+  .then((val) => val * 2)
+  .then((val) => val + 3)
+  .then(console.log);
+// Output: 13
