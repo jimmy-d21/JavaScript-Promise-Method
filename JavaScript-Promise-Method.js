@@ -111,3 +111,10 @@ Promise.resolve(10)
 // 1. Extracting data on resolution
 Promise.resolve("Payload Ready").then((data) => console.log(data));
 // Output: "Payload Ready"
+
+// 2. Dual parameter use (onFulfilled, onRejected)
+Promise.reject("Failed").then(
+  (res) => console.log(res),
+  (err) => console.log(`Handled rejection: ${err}`),
+);
+// Output: "Handled rejection: Failed"
