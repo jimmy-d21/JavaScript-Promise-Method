@@ -52,3 +52,11 @@ const rejectedPromise = Promise.reject("Network Error");
 rejectedPromise.catch(() => {}); // Prevent unhandled rejection warning
 console.log(rejectedPromise);
 // Output: Promise { <rejected> "Network Error" }
+
+// 4. State immutability (first resolution wins)
+new Promise((resolve, reject) => {
+  resolve("First Call Wins");
+  reject("Ignored");
+  resolve("Ignored");
+}).then(console.log);
+// Output: "First Call Wins"
