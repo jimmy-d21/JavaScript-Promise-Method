@@ -95,3 +95,13 @@ Promise.reject("Initial Error")
   .then((val) => `${val} -> Next Step`)
   .then(console.log);
 // Output: "Recovered Value -> Next Step"
+
+// 5. Short-circuiting a chain on uncaught failure
+Promise.resolve(10)
+  .then(() => {
+    throw new Error("Break Chain");
+  })
+  .then(() => "Skipped Step")
+  .catch((err) => err.message)
+  .then(console.log);
+// Output: "Break Chain"
