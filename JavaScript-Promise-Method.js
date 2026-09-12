@@ -118,3 +118,9 @@ Promise.reject("Failed").then(
   (err) => console.log(`Handled rejection: ${err}`),
 );
 // Output: "Handled rejection: Failed"
+
+// 3. Value pass-through when callback returns scalar
+Promise.resolve(100)
+  .then((res) => res + 50)
+  .then(console.log);
+// Output: 150
