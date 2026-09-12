@@ -34,3 +34,10 @@ console.log("2. Outer script continues");
 // "1. Executor runs synchronously"
 // "2. Outer script continues"
 // "3. Resolved"
+
+// States: pending -> fulfilled (resolved) OR pending -> rejected (state changes are permanent)
+
+// 1. Pending state (unsettled execution)
+const pendingPromise = new Promise(() => {});
+console.log(pendingPromise);
+// Output: Promise { <pending> }
