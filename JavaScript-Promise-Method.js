@@ -81,3 +81,10 @@ Promise.resolve("User ID: 42")
   .then((id) => new Promise((resolve) => resolve(`${id} -> Profile Data`)))
   .then(console.log);
 // Output: "User ID: 42 -> Profile Data"
+
+// 3. Transforming string values through chain steps
+Promise.resolve("hello")
+  .then((str) => str.toUpperCase())
+  .then((str) => `${str} WORLD`)
+  .then(console.log);
+// Output: "HELLO WORLD"
