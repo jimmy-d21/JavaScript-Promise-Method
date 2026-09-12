@@ -15,3 +15,11 @@ const delay = (ms) =>
   new Promise((resolve) => setTimeout(() => resolve(`Done in ${ms}ms`), ms));
 delay(10).then(console.log);
 // Output: "Done in 10ms"
+
+// 4. Conditional resolve/reject based on logic
+const checkAge = (age) =>
+  new Promise((resolve, reject) => {
+    age >= 18 ? resolve("Allowed") : reject("Denied");
+  });
+checkAge(20).then(console.log);
+// Output: "Allowed"
