@@ -105,3 +105,9 @@ Promise.resolve(10)
   .catch((err) => err.message)
   .then(console.log);
 // Output: "Break Chain"
+
+// .then(onFulfilled): Runs callback when Promise resolves; returns a new Promise
+
+// 1. Extracting data on resolution
+Promise.resolve("Payload Ready").then((data) => console.log(data));
+// Output: "Payload Ready"
