@@ -75,3 +75,9 @@ Promise.resolve(5)
   .then((val) => val + 3)
   .then(console.log);
 // Output: 13
+
+// 2. Returning a inner Promise inside a chain
+Promise.resolve("User ID: 42")
+  .then((id) => new Promise((resolve) => resolve(`${id} -> Profile Data`)))
+  .then(console.log);
+// Output: "User ID: 42 -> Profile Data"
