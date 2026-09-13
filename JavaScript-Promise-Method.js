@@ -242,3 +242,9 @@ getData(true).then(console.log);
 // 1. Rejecting with string reason
 Promise.reject("Bad Request").catch(console.log);
 // Output: "Bad Request"
+
+// 2. Rejecting with Error object
+Promise.reject(new TypeError("Invalid Type")).catch((err) =>
+  console.log(err.name),
+);
+// Output: "TypeError"
