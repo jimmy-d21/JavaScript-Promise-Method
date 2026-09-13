@@ -188,3 +188,9 @@ Promise.reject("Error Occurred")
 // Output:
 // "Resource released"
 // "Error Occurred"
+
+// 3. Pass-through original resolution value
+Promise.resolve(42)
+  .finally(() => "Ignored return value")
+  .then(console.log);
+// Output: 42
