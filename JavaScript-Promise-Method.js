@@ -335,3 +335,7 @@ Promise.allSettled([
   .then((results) => results.filter((r) => r.status === "rejected").length)
   .then(console.log);
 // Output: 2
+
+// 4. Empty array handling
+Promise.allSettled([]).then(console.log);
+// Output: []
