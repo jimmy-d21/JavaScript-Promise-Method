@@ -226,3 +226,7 @@ console.log(Promise.resolve(original) === original);
 const thenable = { then: (resolve) => resolve("Custom Thenable") };
 Promise.resolve(thenable).then(console.log);
 // Output: "Custom Thenable"
+
+// 4. Resolving empty/undefined Promise
+Promise.resolve().then((val) => console.log(val));
+// Output: undefined
