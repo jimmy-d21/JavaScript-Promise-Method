@@ -202,3 +202,11 @@ Promise.reject("Server Down")
 // Output:
 // "Cleanup done"
 // "Server Down"
+
+// 5. Overriding rejection if .finally() itself throws
+Promise.resolve("Success")
+  .finally(() => {
+    throw new Error("Cleanup Crash");
+  })
+  .catch((err) => console.log(err.message));
+// Output: "Cleanup Crash"
