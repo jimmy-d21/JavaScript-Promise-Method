@@ -262,3 +262,10 @@ Promise.reject({ status: 404, message: "Not Found" }).catch((err) =>
   console.log(err.status),
 );
 // Output: 404
+
+// 5. Rejecting another Promise instance (does not flatten)
+const innerErr = new Error("Inner");
+Promise.reject(Promise.reject(innerErr)).catch((reason) =>
+  console.log(reason instanceof Promise),
+);
+// Output: true
