@@ -291,3 +291,7 @@ Promise.all([
 // 3. Mixing non-promise values in the array
 Promise.all([10, Promise.resolve(20), 30]).then(console.log);
 // Output: [10, 20, 30]
+
+// 4. Handling empty array input (fulfills synchronously)
+Promise.all([]).then((results) => console.log(results));
+// Output: []
