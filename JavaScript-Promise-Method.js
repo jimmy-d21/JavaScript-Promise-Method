@@ -339,3 +339,11 @@ Promise.allSettled([
 // 4. Empty array handling
 Promise.allSettled([]).then(console.log);
 // Output: []
+
+// 5. Handling non-promise elements
+Promise.allSettled(["Static", Promise.resolve("Dynamic")]).then(console.log);
+// Output:
+// [
+//   { status: 'fulfilled', value: 'Static' },
+//   { status: 'fulfilled', value: 'Dynamic' }
+// ]
