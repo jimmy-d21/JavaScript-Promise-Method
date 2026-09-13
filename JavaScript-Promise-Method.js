@@ -325,3 +325,13 @@ Promise.allSettled([
   )
   .then(console.log);
 // Output: [10, 30]
+
+// 3. Counting total failure rate
+Promise.allSettled([
+  Promise.reject("E1"),
+  Promise.reject("E2"),
+  Promise.resolve("OK"),
+])
+  .then((results) => results.filter((r) => r.status === "rejected").length)
+  .then(console.log);
+// Output: 2
