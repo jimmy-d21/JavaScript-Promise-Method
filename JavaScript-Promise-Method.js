@@ -248,3 +248,11 @@ Promise.reject(new TypeError("Invalid Type")).catch((err) =>
   console.log(err.name),
 );
 // Output: "TypeError"
+
+// 3. Short-circuiting validation logic
+function validate(input) {
+  if (!input) return Promise.reject("Input required");
+  return Promise.resolve("Valid");
+}
+validate("").catch(console.log);
+// Output: "Input required"
