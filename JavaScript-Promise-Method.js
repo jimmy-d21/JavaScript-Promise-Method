@@ -230,3 +230,15 @@ Promise.resolve(thenable).then(console.log);
 // 4. Resolving empty/undefined Promise
 Promise.resolve().then((val) => console.log(val));
 // Output: undefined
+
+// 5. Normalizing dynamic return values in functions
+const getData = (cached) =>
+  cached ? Promise.resolve("Cache") : Promise.resolve("Network");
+getData(true).then(console.log);
+// Output: "Cache"
+
+// Promise.reject(reason): Returns a rejected Promise immediately with reason
+
+// 1. Rejecting with string reason
+Promise.reject("Bad Request").catch(console.log);
+// Output: "Bad Request"
