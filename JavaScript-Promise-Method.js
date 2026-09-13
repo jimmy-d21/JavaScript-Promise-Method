@@ -142,3 +142,11 @@ Promise.reject("API 500 Server Error").catch((err) =>
   console.log(`Caught: ${err}`),
 );
 // Output: "Caught: API 500 Server Error"
+
+// 2. Catching synchronous throws inside .then()
+Promise.resolve()
+  .then(() => {
+    throw new Error("Unexpected Crash");
+  })
+  .catch((err) => console.log(err.message));
+// Output: "Unexpected Crash"
