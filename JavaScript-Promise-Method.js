@@ -301,3 +301,15 @@ const p1 = new Promise((r) => setTimeout(() => r("Fast"), 10));
 const p2 = new Promise((r) => setTimeout(() => r("Slow"), 20));
 Promise.all([p1, p2]).then(console.log);
 // Output: ['Fast', 'Slow']
+
+// Promise.allSettled(iterable): Waits for all tasks to finish; returns array of {status, value/reason}
+
+// 1. Aggregating successful and failed outcomes
+Promise.allSettled([Promise.resolve("Success"), Promise.reject("Error")]).then(
+  console.log,
+);
+// Output:
+// [
+//   { status: 'fulfilled', value: 'Success' },
+//   { status: 'rejected', reason: 'Error' }
+// ]
