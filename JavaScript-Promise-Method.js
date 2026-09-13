@@ -256,3 +256,9 @@ function validate(input) {
 }
 validate("").catch(console.log);
 // Output: "Input required"
+
+// 4. Rejecting with an object
+Promise.reject({ status: 404, message: "Not Found" }).catch((err) =>
+  console.log(err.status),
+);
+// Output: 404
