@@ -269,3 +269,13 @@ Promise.reject(Promise.reject(innerErr)).catch((reason) =>
   console.log(reason instanceof Promise),
 );
 // Output: true
+
+// Promise.all(iterable): Fulfills when ALL succeed; fails fast if ANY 1 rejects
+
+// 1. Parallel execution of multiple promises
+Promise.all([
+  Promise.resolve("A"),
+  Promise.resolve("B"),
+  Promise.resolve("C"),
+]).then(console.log);
+// Output: ['A', 'B', 'C']
