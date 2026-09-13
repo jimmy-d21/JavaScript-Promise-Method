@@ -279,3 +279,11 @@ Promise.all([
   Promise.resolve("C"),
 ]).then(console.log);
 // Output: ['A', 'B', 'C']
+
+// 2. Fast-fail behavior on single rejection
+Promise.all([
+  Promise.resolve("OK"),
+  Promise.reject("Failed Item"),
+  Promise.resolve("OK 2"),
+]).catch(console.log);
+// Output: "Failed Item"
