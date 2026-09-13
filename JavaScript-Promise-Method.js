@@ -170,3 +170,13 @@ Promise.resolve("All Good")
   .catch(() => "Won't Run")
   .then(console.log);
 // Output: "All Good"
+
+// .finally(callback): Runs cleanup logic on settlement; transparently passes through state/values
+
+// 1. Cleanup after success
+Promise.resolve("Data Loaded")
+  .finally(() => console.log("Spinner hidden"))
+  .then(console.log);
+// Output:
+// "Spinner hidden"
+// "Data Loaded"
