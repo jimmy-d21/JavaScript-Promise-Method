@@ -194,3 +194,11 @@ Promise.resolve(42)
   .finally(() => "Ignored return value")
   .then(console.log);
 // Output: 42
+
+// 4. Pass-through original rejection reason
+Promise.reject("Server Down")
+  .finally(() => console.log("Cleanup done"))
+  .catch(console.log);
+// Output:
+// "Cleanup done"
+// "Server Down"
