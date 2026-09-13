@@ -156,3 +156,11 @@ Promise.reject("Failed Fetch")
   .catch(() => ({ status: "Offline Cache" }))
   .then((data) => console.log(data.status));
 // Output: "Offline Cache"
+
+// 4. Re-throwing errors to pass them to downstream handlers
+Promise.reject("Fatal DB Failure")
+  .catch((err) => {
+    throw new Error(`Log: ${err}`);
+  })
+  .catch((err) => console.log(err.message));
+// Output: "Log: Fatal DB Failure"
