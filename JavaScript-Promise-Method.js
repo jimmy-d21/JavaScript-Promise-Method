@@ -295,3 +295,9 @@ Promise.all([10, Promise.resolve(20), 30]).then(console.log);
 // 4. Handling empty array input (fulfills synchronously)
 Promise.all([]).then((results) => console.log(results));
 // Output: []
+
+// 5. Concurrent timer processing
+const p1 = new Promise((r) => setTimeout(() => r("Fast"), 10));
+const p2 = new Promise((r) => setTimeout(() => r("Slow"), 20));
+Promise.all([p1, p2]).then(console.log);
+// Output: ['Fast', 'Slow']
