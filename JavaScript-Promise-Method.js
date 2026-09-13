@@ -313,3 +313,15 @@ Promise.allSettled([Promise.resolve("Success"), Promise.reject("Error")]).then(
 //   { status: 'fulfilled', value: 'Success' },
 //   { status: 'rejected', reason: 'Error' }
 // ]
+
+// 2. Filtering successful results only
+Promise.allSettled([
+  Promise.resolve(10),
+  Promise.reject("Fail"),
+  Promise.resolve(30),
+])
+  .then((results) =>
+    results.filter((r) => r.status === "fulfilled").map((r) => r.value),
+  )
+  .then(console.log);
+// Output: [10, 30]
