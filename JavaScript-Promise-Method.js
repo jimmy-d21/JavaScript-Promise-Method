@@ -150,3 +150,9 @@ Promise.resolve()
   })
   .catch((err) => console.log(err.message));
 // Output: "Unexpected Crash"
+
+// 3. Continuing the chain by returning a fallback value from .catch()
+Promise.reject("Failed Fetch")
+  .catch(() => ({ status: "Offline Cache" }))
+  .then((data) => console.log(data.status));
+// Output: "Offline Cache"
