@@ -221,3 +221,8 @@ Promise.resolve(100).then(console.log);
 const original = Promise.resolve("Exist");
 console.log(Promise.resolve(original) === original);
 // Output: true
+
+// 3. Converting Thenable objects
+const thenable = { then: (resolve) => resolve("Custom Thenable") };
+Promise.resolve(thenable).then(console.log);
+// Output: "Custom Thenable"
