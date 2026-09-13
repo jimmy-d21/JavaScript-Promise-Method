@@ -216,3 +216,8 @@ Promise.resolve("Success")
 // 1. Converting primitive value to Promise
 Promise.resolve(100).then(console.log);
 // Output: 100
+
+// 2. Flattening existing Promise (returns same reference)
+const original = Promise.resolve("Exist");
+console.log(Promise.resolve(original) === original);
+// Output: true
