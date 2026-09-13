@@ -164,3 +164,9 @@ Promise.reject("Fatal DB Failure")
   })
   .catch((err) => console.log(err.message));
 // Output: "Log: Fatal DB Failure"
+
+// 5. Bypassing .catch() when no error occurs
+Promise.resolve("All Good")
+  .catch(() => "Won't Run")
+  .then(console.log);
+// Output: "All Good"
