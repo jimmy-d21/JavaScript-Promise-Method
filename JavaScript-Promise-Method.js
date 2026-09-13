@@ -180,3 +180,11 @@ Promise.resolve("Data Loaded")
 // Output:
 // "Spinner hidden"
 // "Data Loaded"
+
+// 2. Cleanup after failure
+Promise.reject("Error Occurred")
+  .finally(() => console.log("Resource released"))
+  .catch((err) => console.log(err));
+// Output:
+// "Resource released"
+// "Error Occurred"
