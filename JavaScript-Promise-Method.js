@@ -134,3 +134,11 @@ Promise.resolve()
 // 5. Skipping handler when non-function passed
 Promise.resolve("Direct Value").then(null).then(console.log);
 // Output: "Direct Value"
+
+// .catch(onRejected): Catches rejections or exceptions thrown anywhere prior in the chain
+
+// 1. Catching rejected promises
+Promise.reject("API 500 Server Error").catch((err) =>
+  console.log(`Caught: ${err}`),
+);
+// Output: "Caught: API 500 Server Error"
