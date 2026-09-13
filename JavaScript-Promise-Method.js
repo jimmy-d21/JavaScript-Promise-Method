@@ -210,3 +210,9 @@ Promise.resolve("Success")
   })
   .catch((err) => console.log(err.message));
 // Output: "Cleanup Crash"
+
+// Promise.resolve(val): Wraps a value in a fulfilled Promise immediately
+
+// 1. Converting primitive value to Promise
+Promise.resolve(100).then(console.log);
+// Output: 100
