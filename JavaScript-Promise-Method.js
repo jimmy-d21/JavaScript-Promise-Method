@@ -496,3 +496,8 @@ primitive();
 const dbConnection = await Promise.resolve("DB Connected");
 console.log(dbConnection);
 // Output: "DB Connected"
+
+// 2. Conditional top-level dynamic setup
+const featureFlags = await Promise.resolve({ enableNewUI: true });
+console.log(`UI Enabled: ${featureFlags.enableNewUI}`);
+// Output: "UI Enabled: true"
