@@ -633,3 +633,11 @@ window.addEventListener("unhandledrejection", (event) => {
 });
 Promise.reject("Ref Test");
 // Output: true
+
+// 5. Late rejection handling tracking (`rejectionhandled` event)
+window.addEventListener("rejectionhandled", () => {
+  console.log("Rejection handled late!");
+});
+const lateP = Promise.reject("Late");
+setTimeout(() => lateP.catch(() => {}), 50);
+// Output: "Rejection handled late!"
