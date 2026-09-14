@@ -602,3 +602,12 @@ slowLoop();
 // Output:
 // "Delayed 10ms"
 // "Delayed 20ms"
+
+// unhandledrejection: Global window/process hook to capture uncaught rejected promises
+
+// 1. Browser unhandled rejection capture pattern
+window.addEventListener("unhandledrejection", (event) => {
+  console.log(`Global catch: ${event.reason}`);
+});
+Promise.reject("Uncaught Browser Error");
+// Output: "Global catch: Uncaught Browser Error"
