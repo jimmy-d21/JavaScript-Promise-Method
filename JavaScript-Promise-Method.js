@@ -545,3 +545,15 @@ processList();
 // 1
 // 2
 // 3
+
+// 2. Iterating over mixed values and promises
+async function processMixed() {
+  const items = ["Static", Promise.resolve("Async")];
+  for await (const item of items) {
+    console.log(item);
+  }
+}
+processMixed();
+// Output:
+// "Static"
+// "Async"
