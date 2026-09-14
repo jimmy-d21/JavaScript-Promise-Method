@@ -526,3 +526,22 @@ const asyncData = await new Promise((r) =>
 );
 console.log(asyncData);
 // Output: "Ready Export"
+
+// for await (const x of iterable): Sequentially iterates over promises or async generators
+
+// 1. Iterating over an array of Promises
+async function processList() {
+  const promiseArr = [
+    Promise.resolve(1),
+    Promise.resolve(2),
+    Promise.resolve(3),
+  ];
+  for await (const num of promiseArr) {
+    console.log(num);
+  }
+}
+processList();
+// Output:
+// 1
+// 2
+// 3
