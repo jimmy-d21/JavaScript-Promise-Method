@@ -472,3 +472,12 @@ async function failRun() {
 }
 failRun();
 // Output: "Caught: Crash"
+
+// 4. Sequential awaits
+async function steps() {
+  const a = await Promise.resolve("Step 1");
+  const b = await Promise.resolve("Step 2");
+  console.log(`${a} -> ${b}`);
+}
+steps();
+// Output: "Step 1 -> Step 2"
