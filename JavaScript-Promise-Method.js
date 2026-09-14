@@ -395,3 +395,10 @@ Promise.any([Promise.reject("Err 1"), Promise.reject("Err 2")]).catch((err) => {
 // Output:
 // "AggregateError"
 // ['Err 1', 'Err 2']
+
+// 3. First fulfillment among multiple fulfills wins
+Promise.any([
+  Promise.resolve("First Success"),
+  Promise.resolve("Second Success"),
+]).then(console.log);
+// Output: "First Success"
