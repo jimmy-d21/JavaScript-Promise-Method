@@ -519,3 +519,10 @@ const [users, posts] = await Promise.all([
 ]);
 console.log(`${users[0]}, ${posts[0]}`);
 // Output: "Alice, Post 1"
+
+// 5. Delaying module export resolution
+const asyncData = await new Promise((r) =>
+  setTimeout(() => r("Ready Export"), 10),
+);
+console.log(asyncData);
+// Output: "Ready Export"
