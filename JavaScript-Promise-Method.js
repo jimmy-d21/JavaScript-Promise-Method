@@ -626,3 +626,10 @@ process.on("unhandledRejection", (reason) => {
 });
 Promise.reject("Node Error");
 // Output: "Node caught: Node Error"
+
+// 4. Accessing target promise reference from event
+window.addEventListener("unhandledrejection", (event) => {
+  console.log(event.promise instanceof Promise);
+});
+Promise.reject("Ref Test");
+// Output: true
