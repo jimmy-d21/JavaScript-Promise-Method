@@ -438,3 +438,9 @@ queue.push(task);
 queue[0].resolve("Task 1 Completed");
 task.promise.then(console.log);
 // Output: "Task 1 Completed"
+
+// 5. Cleaning up timer logic externally
+const { promise: timePromise, resolve: finish } = Promise.withResolvers();
+const timer = setTimeout(() => finish("Timer Done"), 10);
+timePromise.then(console.log);
+// Output: "Timer Done"
