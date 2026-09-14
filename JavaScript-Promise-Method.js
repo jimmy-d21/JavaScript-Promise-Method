@@ -424,3 +424,9 @@ const { promise: p3, reject: r2 } = Promise.withResolvers();
 p3.catch(console.log);
 r2("Rejected externally!");
 // Output: "Rejected externally!"
+
+// 3. Resolving inside an event callback pattern
+const { promise: eventPromise, resolve: trigger } = Promise.withResolvers();
+eventPromise.then((val) => console.log(`Triggered: ${val}`));
+trigger("Button Clicked");
+// Output: "Triggered: Button Clicked"
