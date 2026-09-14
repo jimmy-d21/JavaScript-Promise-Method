@@ -430,3 +430,11 @@ const { promise: eventPromise, resolve: trigger } = Promise.withResolvers();
 eventPromise.then((val) => console.log(`Triggered: ${val}`));
 trigger("Button Clicked");
 // Output: "Triggered: Button Clicked"
+
+// 4. Storing resolve controls in a queue
+const queue = [];
+const task = Promise.withResolvers();
+queue.push(task);
+queue[0].resolve("Task 1 Completed");
+task.promise.then(console.log);
+// Output: "Task 1 Completed"
