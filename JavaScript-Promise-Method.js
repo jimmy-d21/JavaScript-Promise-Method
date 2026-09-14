@@ -481,3 +481,11 @@ async function steps() {
 }
 steps();
 // Output: "Step 1 -> Step 2"
+
+// 5. Awaiting non-promise primitives
+async function primitive() {
+  const x = await 100;
+  console.log(x);
+}
+primitive();
+// Output: 100
