@@ -572,3 +572,19 @@ runGen();
 // Output:
 // "A"
 // "B"
+
+// 4. Handling rejection during iteration
+async function handleFail() {
+  const list = [Promise.resolve("OK"), Promise.reject("Stop")];
+  try {
+    for await (const item of list) {
+      console.log(item);
+    }
+  } catch (err) {
+    console.log(`Interrupted: ${err}`);
+  }
+}
+handleFail();
+// Output:
+// "OK"
+// "Interrupted: Stop"
