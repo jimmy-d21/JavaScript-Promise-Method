@@ -453,3 +453,11 @@ async function fetchNumber() {
 }
 fetchNumber().then(console.log);
 // Output: 42
+
+// 2. Awaiting a promise execution
+async function run() {
+  const data = await Promise.resolve("Data");
+  console.log(data);
+}
+run();
+// Output: "Data"
