@@ -588,3 +588,17 @@ handleFail();
 // Output:
 // "OK"
 // "Interrupted: Stop"
+
+// 5. Sequential execution delays in loop
+async function slowLoop() {
+  const delays = [10, 20].map(
+    (ms) => new Promise((r) => setTimeout(() => r(`Delayed ${ms}ms`), ms)),
+  );
+  for await (const msg of delays) {
+    console.log(msg);
+  }
+}
+slowLoop();
+// Output:
+// "Delayed 10ms"
+// "Delayed 20ms"
