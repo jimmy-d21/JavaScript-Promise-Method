@@ -511,3 +511,11 @@ try {
 }
 console.log(config.env);
 // Output: "production"
+
+// 4. Parallel initialization loading at module root
+const [users, posts] = await Promise.all([
+  Promise.resolve(["Alice"]),
+  Promise.resolve(["Post 1"]),
+]);
+console.log(`${users[0]}, ${posts[0]}`);
+// Output: "Alice, Post 1"
