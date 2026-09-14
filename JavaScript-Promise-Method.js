@@ -489,3 +489,10 @@ async function primitive() {
 }
 primitive();
 // Output: 100
+
+// Top-level await: Allows 'await' at root module level without an enclosing async function
+
+// 1. Direct root-level promise awaiting (inside ES Module)
+const dbConnection = await Promise.resolve("DB Connected");
+console.log(dbConnection);
+// Output: "DB Connected"
