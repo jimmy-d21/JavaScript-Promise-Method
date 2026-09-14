@@ -355,3 +355,9 @@ const fast = new Promise((r) => setTimeout(() => r("Fast"), 10));
 const slow = new Promise((r) => setTimeout(() => r("Slow"), 50));
 Promise.race([fast, slow]).then(console.log);
 // Output: "Fast"
+
+// 2. Fastest rejection wins
+const fastFail = new Promise((_, r) => setTimeout(() => r("Fast Error"), 10));
+const slowSuccess = new Promise((r) => setTimeout(() => r("Slow Success"), 50));
+Promise.race([fastFail, slowSuccess]).catch(console.log);
+// Output: "Fast Error"
