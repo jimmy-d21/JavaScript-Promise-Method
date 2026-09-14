@@ -418,3 +418,9 @@ const { promise, resolve } = Promise.withResolvers();
 promise.then(console.log);
 resolve("Resolved externally!");
 // Output: "Resolved externally!"
+
+// 2. Basic external rejection usage
+const { promise: p3, reject: r2 } = Promise.withResolvers();
+p3.catch(console.log);
+r2("Rejected externally!");
+// Output: "Rejected externally!"
