@@ -361,3 +361,11 @@ const fastFail = new Promise((_, r) => setTimeout(() => r("Fast Error"), 10));
 const slowSuccess = new Promise((r) => setTimeout(() => r("Slow Success"), 50));
 Promise.race([fastFail, slowSuccess]).catch(console.log);
 // Output: "Fast Error"
+
+// 3. Request timeout implementation pattern
+const request = new Promise((r) => setTimeout(() => r("Data Loaded"), 100));
+const timeout = new Promise((_, r) =>
+  setTimeout(() => r("Request Timeout"), 20),
+);
+Promise.race([request, timeout]).catch(console.log);
+// Output: "Request Timeout"
