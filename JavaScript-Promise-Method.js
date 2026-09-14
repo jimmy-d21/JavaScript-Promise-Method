@@ -611,3 +611,11 @@ window.addEventListener("unhandledrejection", (event) => {
 });
 Promise.reject("Uncaught Browser Error");
 // Output: "Global catch: Uncaught Browser Error"
+
+// 2. Preventing default console error printing
+window.addEventListener("unhandledrejection", (event) => {
+  event.preventDefault(); // Suppresses default error logging
+  console.log("Handled quietly");
+});
+Promise.reject("Quiet Error");
+// Output: "Handled quietly"
