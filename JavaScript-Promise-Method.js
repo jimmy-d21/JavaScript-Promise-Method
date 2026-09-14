@@ -386,3 +386,12 @@ const pErr = Promise.reject("Mirror 1 Failed");
 const pOK = new Promise((r) => setTimeout(() => r("Mirror 2 OK"), 10));
 Promise.any([pErr, pOK]).then(console.log);
 // Output: "Mirror 2 OK"
+
+// 2. All rejected leads to AggregateError
+Promise.any([Promise.reject("Err 1"), Promise.reject("Err 2")]).catch((err) => {
+  console.log(err.name);
+  console.log(err.errors);
+});
+// Output:
+// "AggregateError"
+// ['Err 1', 'Err 2']
