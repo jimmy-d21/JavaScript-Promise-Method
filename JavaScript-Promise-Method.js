@@ -373,3 +373,8 @@ Promise.race([request, timeout]).catch(console.log);
 // 4. Non-promise values win immediately
 Promise.race([Promise.resolve("Async"), "Sync Immediate"]).then(console.log);
 // Output: "Sync Immediate"
+
+// 5. Empty array stays pending forever
+const emptyRace = Promise.race([]);
+console.log(emptyRace);
+// Output: Promise { <pending> }
