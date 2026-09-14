@@ -501,3 +501,13 @@ console.log(dbConnection);
 const featureFlags = await Promise.resolve({ enableNewUI: true });
 console.log(`UI Enabled: ${featureFlags.enableNewUI}`);
 // Output: "UI Enabled: true"
+
+// 3. Fallback module configuration setup
+let config;
+try {
+  config = await Promise.resolve({ env: "production" });
+} catch {
+  config = { env: "default" };
+}
+console.log(config.env);
+// Output: "production"
