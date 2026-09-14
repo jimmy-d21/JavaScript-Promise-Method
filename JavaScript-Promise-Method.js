@@ -444,3 +444,12 @@ const { promise: timePromise, resolve: finish } = Promise.withResolvers();
 const timer = setTimeout(() => finish("Timer Done"), 10);
 timePromise.then(console.log);
 // Output: "Timer Done"
+
+// async/await: Syntactic sugar; async functions return Promises, await pauses execution until resolved
+
+// 1. Basic async function return wrapping
+async function fetchNumber() {
+  return 42;
+}
+fetchNumber().then(console.log);
+// Output: 42
