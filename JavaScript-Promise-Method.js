@@ -402,3 +402,7 @@ Promise.any([
   Promise.resolve("Second Success"),
 ]).then(console.log);
 // Output: "First Success"
+
+// 4. Mixed non-promises fulfill instantly
+Promise.any([Promise.reject("Fail"), "Instant Static"]).then(console.log);
+// Output: "Instant Static"
