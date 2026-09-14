@@ -619,3 +619,10 @@ window.addEventListener("unhandledrejection", (event) => {
 });
 Promise.reject("Quiet Error");
 // Output: "Handled quietly"
+
+// 3. Node.js process listener pattern
+process.on("unhandledRejection", (reason) => {
+  console.log(`Node caught: ${reason}`);
+});
+Promise.reject("Node Error");
+// Output: "Node caught: Node Error"
