@@ -347,3 +347,11 @@ Promise.allSettled(["Static", Promise.resolve("Dynamic")]).then(console.log);
 //   { status: 'fulfilled', value: 'Static' },
 //   { status: 'fulfilled', value: 'Dynamic' }
 // ]
+
+// Promise.race(iterable): Adopts state of the FIRST settled promise (whether fulfilled or rejected)
+
+// 1. Fastest fulfillment wins
+const fast = new Promise((r) => setTimeout(() => r("Fast"), 10));
+const slow = new Promise((r) => setTimeout(() => r("Slow"), 50));
+Promise.race([fast, slow]).then(console.log);
+// Output: "Fast"
