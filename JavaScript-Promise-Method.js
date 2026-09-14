@@ -461,3 +461,14 @@ async function run() {
 }
 run();
 // Output: "Data"
+
+// 3. Error handling with try/catch
+async function failRun() {
+  try {
+    await Promise.reject("Crash");
+  } catch (err) {
+    console.log(`Caught: ${err}`);
+  }
+}
+failRun();
+// Output: "Caught: Crash"
