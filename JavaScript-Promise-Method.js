@@ -557,3 +557,18 @@ processMixed();
 // Output:
 // "Static"
 // "Async"
+
+// 3. Async Generator function iteration
+async function* asyncGenerator() {
+  yield Promise.resolve("A");
+  yield Promise.resolve("B");
+}
+async function runGen() {
+  for await (const val of asyncGenerator()) {
+    console.log(val);
+  }
+}
+runGen();
+// Output:
+// "A"
+// "B"
