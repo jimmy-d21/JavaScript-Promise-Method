@@ -410,3 +410,11 @@ Promise.any([Promise.reject("Fail"), "Instant Static"]).then(console.log);
 // 5. Empty array rejects immediately with AggregateError
 Promise.any([]).catch((err) => console.log(err.name));
 // Output: "AggregateError"
+
+// Promise.withResolvers(): Returns { promise, resolve, reject } to settle a promise externally
+
+// 1. Basic external resolution usage
+const { promise, resolve } = Promise.withResolvers();
+promise.then(console.log);
+resolve("Resolved externally!");
+// Output: "Resolved externally!"
