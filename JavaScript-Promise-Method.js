@@ -378,3 +378,11 @@ Promise.race([Promise.resolve("Async"), "Sync Immediate"]).then(console.log);
 const emptyRace = Promise.race([]);
 console.log(emptyRace);
 // Output: Promise { <pending> }
+
+// Promise.any(iterable): Resolves on FIRST fulfillment; rejects with AggregateError if ALL fail
+
+// 1. Ignores early rejections if a later fulfillment succeeds
+const pErr = Promise.reject("Mirror 1 Failed");
+const pOK = new Promise((r) => setTimeout(() => r("Mirror 2 OK"), 10));
+Promise.any([pErr, pOK]).then(console.log);
+// Output: "Mirror 2 OK"
