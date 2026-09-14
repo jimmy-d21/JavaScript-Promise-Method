@@ -369,3 +369,7 @@ const timeout = new Promise((_, r) =>
 );
 Promise.race([request, timeout]).catch(console.log);
 // Output: "Request Timeout"
+
+// 4. Non-promise values win immediately
+Promise.race([Promise.resolve("Async"), "Sync Immediate"]).then(console.log);
+// Output: "Sync Immediate"
